@@ -1,6 +1,8 @@
 # hermes-client
 Hermes client is a PHP client for [Hermes message bus](http://hermes.allegro.tech/). It is meant to reflect [Java client](https://github.com/allegro/hermes) API.
 
+Currently this is development version so please keep in mind that everything can change.
+
 ## Install
 
 
