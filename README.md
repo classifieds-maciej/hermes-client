@@ -4,6 +4,7 @@ Hermes client is a PHP client for [Hermes message bus](http://hermes.allegro.tec
 Currently this is development version so please keep in mind that everything can change.
 
 ## Install
+Add to composer.json:
 ```json
 "require": {
   "classifieds-maciej/hermes-client": "master"
@@ -15,6 +16,10 @@ Currently this is development version so please keep in mind that everything can
       "url": "https://github.com/classifieds-maciej/hermes-client.git"
     }
 ]
+```
+Run:
+```bash
+composer install
 ```
 
 ## Use
