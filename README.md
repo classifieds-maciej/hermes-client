@@ -4,13 +4,33 @@ Hermes client is a PHP client for [Hermes message bus](http://hermes.allegro.tec
 Currently this is development version so please keep in mind that everything can change.
 
 ## Install
+```json
+"require": {
+  "classifieds-maciej/hermes-client": "master"
+}
 
-
-## Configure
-
+"repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/classifieds-maciej/hermes-client.git"
+    }
+]
+```
 
 ## Use
+```php
+$sender = new SyncSender(new Client());
+$client = new HermesClient('http://localhost:8080/topics/', $sender);
 
+$client->publish(new HermesMessage(
+  'test.group.test_topic', 
+  [
+    'header1_key' => 'header1_value',
+    'header2_key' => 'header2_value'
+  ], 
+  'test body'
+));
+```
 
 ## Contribute
 Issues and pull requests are most welcome. You can contribute in certain ways:
