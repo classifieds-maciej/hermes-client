@@ -14,7 +14,7 @@ class HermesResponse
     private $headers;
 
     /**
-     * @var array
+     * @var string
      */
     private $body;
 
@@ -22,9 +22,9 @@ class HermesResponse
      * HermesResponse constructor.
      * @param int $httpCode
      * @param array $headers
-     * @param array $body
+     * @param string $body
      */
-    public function __construct(int $httpCode, array $headers, array $body)
+    public function __construct(int $httpCode, array $headers, string $body)
     {
         $this->httpCode = $httpCode;
         $this->headers = $headers;
@@ -72,9 +72,9 @@ class HermesResponse
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getBody(): array
+    public function getBody(): string
     {
         return $this->body;
     }

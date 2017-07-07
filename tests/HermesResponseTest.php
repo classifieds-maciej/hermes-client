@@ -7,14 +7,14 @@ class HermesResponseTest extends TestCase
 {
     public function test201ResponseShouldBeSuccessful()
     {
-        $response = new HermesResponse(201, [], []);
+        $response = new HermesResponse(201, [], '');
 
         $this->assertTrue($response->isSuccess());
     }
 
     public function test404ResponseShouldBeFailure()
     {
-        $response = new HermesResponse(404, [], []);
+        $response = new HermesResponse(404, [], '');
 
         $this->assertTrue($response->isFailure());
     }
