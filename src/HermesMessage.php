@@ -14,7 +14,7 @@ class HermesMessage
     private $headers;
 
     /**
-     * @var array
+     * @var string
      */
     private $body;
 
@@ -22,9 +22,9 @@ class HermesMessage
      * Message constructor.
      * @param string $topic
      * @param array $headers
-     * @param array $body
+     * @param string $body
      */
-    public function __construct(string $topic, array $headers = [], array $body = [])
+    public function __construct(string $topic, array $headers = [], string $body = '')
     {
         $this->topic = $topic;
         $this->headers = $headers;
@@ -48,9 +48,9 @@ class HermesMessage
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getBody(): array
+    public function getBody(): string
     {
         return $this->body;
     }

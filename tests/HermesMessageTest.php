@@ -7,7 +7,7 @@ class HermesMessageTest extends TestCase
 {
     public function testEmptyMessageShouldSerializeToString()
     {
-        $expected = '{"topic":"test_topic","headers":[],"body":[]}';
+        $expected = '{"topic":"test_topic","headers":[],"body":""}';
 
         $message = new HermesMessage('test_topic');
 
@@ -16,9 +16,9 @@ class HermesMessageTest extends TestCase
 
     public function testMessageShouldSerializeToString()
     {
-        $expected = '{"topic":"test_topic","headers":{"test_header":"test_header"},"body":{"body_element":"test"}}';
+        $expected = '{"topic":"test_topic","headers":{"test_header":"test_header"},"body":"body"}';
 
-        $message = new HermesMessage('test_topic', ['test_header' => 'test_header'], ['body_element' => 'test']);
+        $message = new HermesMessage('test_topic', ['test_header' => 'test_header'], 'body');
 
         $this->assertEquals($expected, (string)$message);
     }
