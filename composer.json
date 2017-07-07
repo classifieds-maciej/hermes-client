@@ -1,0 +1,23 @@
+{
+  "name": "classifieds-maciej/hermes-client",
+  "description": "Hermes message bus client for PHP",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Maciej Wagner",
+      "email": "mac610@wp.pl"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^6.2"
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "classifieds\\maciej\\hermes\\client\\": "src/"
+    }
+  }
+}
