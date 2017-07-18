@@ -7,15 +7,8 @@ Currently this is development version so please keep in mind that everything can
 Add to composer.json:
 ```json
 "require": {
-  "classifieds-maciej/hermes-client": "master"
+  "classifieds-maciej/hermes-client": "0.1.0"
 }
-
-"repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/classifieds-maciej/hermes-client.git"
-    }
-]
 ```
 Run:
 ```bash
