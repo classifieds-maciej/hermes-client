@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$response = (new HermesClient('http://localhost:8080/topics/', new SyncSender(new Client())))
+$response = (new HermesClient(new SyncSender(new Client()), 'http://localhost:8080/topics/'))
     ->publish(new HermesMessage('test.group.test_topic', [], 'test body'));
 
 print_r($response);
