@@ -21,7 +21,7 @@ class HermesSenderTest extends TestCase
 
         $client->method('send')->willReturn($response);
 
-        $sender = new SyncSender($client);
+        $sender = new GuzzleSender($client);
 
 
         $message = new HermesMessage('topic', [], 'body');

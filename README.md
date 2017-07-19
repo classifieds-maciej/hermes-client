@@ -16,8 +16,9 @@ composer install
 ```
 
 ## Use
+### Sync
 ```php
-$sender = new SyncSender(new Client());
+$sender = new GuzzleSender(new Client());
 $client = new HermesClient('http://localhost:8080/topics/', $sender);
 
 $client->publish(new HermesMessage(
@@ -28,6 +29,28 @@ $client->publish(new HermesMessage(
   ], 
   'test body'
 ));
+```
+### Async
+```php
+$sender = new GuzzleSender(new Client());
+$client = new HermesClient('http://localhost:8080/topics/', $sender);
+
+$client->publishAsync(
+    new HermesMessage(
+      'test.group.test_topic', 
+      [
+        'header1_key' => 'header1_value',
+        'header2_key' => 'header2_value'
+      ], 
+      'test body'
+    ),
+    function (HermesResponse $response) {
+        print_r($response);
+    },
+    function (RequestException $e) {
+        print_r($e);
+    }
+);
 ```
 
 ## Contribute

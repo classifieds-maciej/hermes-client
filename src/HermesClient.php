@@ -73,4 +73,14 @@ class HermesClient
 
         return $response;
     }
+
+    /**
+     * @param HermesMessage $message
+     * @param callable $onSuccess
+     * @param callable $onFailure
+     */
+    public function publishAsync(HermesMessage $message, callable $onSuccess, callable $onFailure)
+    {
+        $this->sender->sendAsync($this->uri . $message->getTopic(), $message, $onSuccess, $onFailure);
+    }
 }
