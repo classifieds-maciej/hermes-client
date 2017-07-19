@@ -7,7 +7,7 @@ Currently this is development version so please keep in mind that everything can
 Add to composer.json:
 ```json
 "require": {
-  "classifieds-maciej/hermes-client": "0.1.0"
+  "classifieds-maciej/hermes-client": "0.2.0"
 }
 ```
 Run:
