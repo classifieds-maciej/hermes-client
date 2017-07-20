@@ -84,7 +84,7 @@ class HermesResponse
      */
     public function getMessageId(): string
     {
-        return $this->headers['Hermes-Message-Id'] ?? '';
+        return $this->headers['Hermes-Message-Id'][0] ?? '';
     }
 
     /**
