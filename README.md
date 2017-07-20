@@ -32,7 +32,7 @@ $client->publish(new HermesMessage(
 ```
 ### Async
 ```php
-$sender = new GuzzleSender(new Client());
+$sender = new GuzzleSender(new Client(['http_errors' => false]));
 $client = new HermesClient('http://localhost:8080/topics/', $sender);
 
 $client->publishAsync(
