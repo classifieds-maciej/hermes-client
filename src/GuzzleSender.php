@@ -2,6 +2,7 @@
 namespace classifieds\maciej\hermes\client;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
 
@@ -54,16 +55,22 @@ class GuzzleSender implements HermesSender
         $promise->wait();
 
         $promise->then(
-            function (ResponseInterface $res) use ($onSuccess) {
+            function (ResponseInterface $res) use ($onSuccess, $onFailure, $message) {
                 $response = new HermesResponse(
                     $res->getStatusCode(),
                     $res->getHeaders(),
                     $res->getBody()->getContents()
                 );
 
-                $onSuccess($response);
+                if ($response->isSuccess()) {
+                    $onSuccess($response);
+                } else {
+                    $onFailure(new HermesException($response->getBody(), $response->getHttpCode()), $message);
+                }
             },
-            $onFailure
+            function (RequestException $e) use ($onFailure, $message) {
+                $onFailure(new HermesException($e->getMessage(), $e->getCode(), $e), $message);
+            }
         );
     }
 
